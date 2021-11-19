@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/19 00:52:02 by dmontema         ###   ########.fr       */
+/*   Created: 2021/08/17 13:32:32 by dmontema          #+#    #+#             */
+/*   Updated: 2021/11/19 01:13:20 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include <stdio.h>
-
-int main(int argc, char const *argv[])
+int	ft_isdigit(int c)
 {
-	if (argc > 1)
-	{
-		printf("%s ", argv[0]);
-		int i = ft_atoi(argv[1]);
-		printf("%d\n", i);
-	}
+	if (c >= '0' && c <= '9')
+		return (c);
 	return (0);
 }

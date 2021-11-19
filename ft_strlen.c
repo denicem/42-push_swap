@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/19 00:52:02 by dmontema         ###   ########.fr       */
+/*   Created: 2021/08/17 14:12:03 by dmontema          #+#    #+#             */
+/*   Updated: 2021/11/19 01:13:29 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include <stdio.h>
-
-int main(int argc, char const *argv[])
+size_t	ft_strlen(const char *s)
 {
-	if (argc > 1)
-	{
-		printf("%s ", argv[0]);
-		int i = ft_atoi(argv[1]);
-		printf("%d\n", i);
-	}
-	return (0);
+	int	res;
+
+	res = 0;
+	while (s[res] != '\0')
+		res++;
+	return (res);
 }

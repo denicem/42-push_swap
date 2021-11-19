@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/19 00:52:02 by dmontema         ###   ########.fr       */
+/*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
+/*   Updated: 2021/11/19 01:13:03 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <stdlib.h>
+#include <unistd.h>
 
-#include <stdio.h>
-
-int main(int argc, char const *argv[])
-{
-	if (argc > 1)
-	{
-		printf("%s ", argv[0]);
-		int i = ft_atoi(argv[1]);
-		printf("%d\n", i);
-	}
-	return (0);
-}
+int	ft_atoi(const char *str);
+int	ft_isdigit(int c);
+size_t	ft_strlen(const char *s);
