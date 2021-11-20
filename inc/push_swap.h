@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/17 14:12:03 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/19 01:13:29 by dmontema         ###   ########.fr       */
+/*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
+/*   Updated: 2021/11/20 17:28:55 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <stdlib.h>
+#include <unistd.h>
 
-size_t	ft_strlen(const char *s)
-{
-	int	res;
+#include "libft.h"
+#include "ft_printf.h"
 
-	res = 0;
-	while (s[res] != '\0')
-		res++;
-	return (res);
-}
+// int	ft_atoi(const char *str);
+// int	ft_isdigit(int c);
+// size_t	ft_strlen(const char *s);
