@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/21 00:19:20 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/21 01:38:53 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,28 @@ void swap(t_list **stack_a, t_list **stack_b)
 	}
 }
 
+void rev_rotate (t_list **list) //TODO: find another solution, so that you don't have to go through the whole list.
+{
+	t_list *p1;
+	t_list *p2;
+
+	p1 = *list;
+	while (p1->next != NULL)
+	{
+		p2 = p1->next;
+		if (p2->next == NULL)
+		{
+			p2->next = *list;
+			p1->next = NULL;
+			*list = p2;
+			break;
+		}
+		p1 = p1->next;
+	}
+
+	ft_printf("rr_\n");
+}
+
 void print_lst(void *content)
 {
 	ft_printf("%d\n", *((int *) content));
@@ -83,6 +105,7 @@ int main(int argc, char const *argv[])
 			ft_lstadd_back(&list, ft_lstnew((&nbr[i])));
 			i++;
 		}
+		rev_rotate(&list);
 		ft_lstiter(list, print_lst);
 	}
 	else 
