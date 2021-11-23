@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/23 19:10:43 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/23 21:35:16 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,38 @@ void sort_three(t_linked_list *stack)
 	}
 }
 
+void setIndex(t_node **stack)
+{
+	int index;
+	int size;
+	t_node *list;
+	t_node *min_val;
+
+	index = 0;
+	size = get_listsize(*stack);
+	while (index < size)
+	{
+		list = *stack;
+		while (list)
+		{
+			if (list->content >= index)
+			{
+				min_val = list;
+				break;
+			}
+			list = list->next;
+		}
+		while (list)
+		{
+			if (list->content < min_val->content && list->content > index)
+				min_val = list;
+			list = list->next;
+		}
+		min_val->content = index;
+		index++;
+	}
+}
+
 int main (int argc, char **argv)
 {
 	t_linked_list a;
@@ -61,7 +93,8 @@ int main (int argc, char **argv)
 		b.tail = NULL;
 
 		print_list(&a.head);
-		sort_three(&a);
+		setIndex(&a.head);
+		// sort_three(&a);
 		print_list(&a.head);
 
 	}
