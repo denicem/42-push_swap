@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 23:28:10 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/23 04:02:38 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/23 17:31:04 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void exec_operation(t_linked_list *a, t_linked_list *b, char *op)
 	if (!strcmp(op, "sb"))
 		swap(&b->head, "");
 	if (!strcmp(op, "ra"))
-		rotate(&a->head, a->tail, "");
+		rotate(&a->head, "");
 	if (!strcmp(op, "rb"))
-		rotate(&b->head, b->tail, "");
+		rotate(&b->head, "");
 	if (!strcmp(op, "rra"))
 		rev_rotate(&a->head, "");
 	if (!strcmp(op, "rrb"))

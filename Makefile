@@ -6,7 +6,7 @@
 #    By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/19 00:52:39 by dmontema          #+#    #+#              #
-#    Updated: 2021/11/23 03:51:21 by dmontema         ###   ########.fr        #
+#    Updated: 2021/11/23 19:08:29 by dmontema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 all:	$(NAME)
 
-$(NAME): $(SRCS)
+$(NAME): $(PS_SRC) $(SRCS) 
 	gcc $(CFLAGS) $(LIBS) $(PS_SRC) $(SRCS) -o $(NAME)
 
 fclean:	
@@ -43,3 +43,6 @@ re: fclean
 
 visual:
 	gcc $(CFLAGS) $(LIBS) $(SRCS) visualization.c -o visualizer
+
+clean-vis:	
+	rm visualizer

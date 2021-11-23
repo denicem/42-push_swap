@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:19:18 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/23 02:20:08 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/23 17:30:12 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ void	swap(t_node **list, char *str)
 	}
 }
 
-void	rotate(t_node **list, t_node *tail, char *str)
+void	rotate(t_node **list, char *str)
 {
 	t_node *tmp;
+	t_node *tail;
 
+	tail = get_last(*list);
 	if (*list && (*list)->next)
 	{
 		tmp = *list;

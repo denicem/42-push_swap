@@ -6,13 +6,41 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/22 22:28:27 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/23 19:10:43 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 #include <stdio.h>
+
+void sort_three(t_linked_list *stack)
+{
+	int a;
+	int b;
+	int c;
+
+	a = stack->head->content;
+	b = stack->head->next->content;
+	c = stack->head->next->next->content;
+
+	if (a < b && a < c && b > c) // 1 3 2
+	{
+		swap(&(stack->head), "sa");
+		rotate(&(stack->head), "ra");
+	}
+	if (a > b && b < c && a < c) // 2 1 3
+		swap(&(stack->head), "sa");
+	if (a < b && a > c && b > c) // 2 3 1
+		rev_rotate(&stack->head, "rra");
+	if (a > b && a > c && b < c) // 3 1 2
+		rotate(&stack->head, "ra");
+	if (a > b && a > c && b > c) // 3 2 1
+	{
+		swap(&stack->head, "sa");
+		rev_rotate(&stack->head, "rra");
+	}
+}
 
 int main (int argc, char **argv)
 {
@@ -33,22 +61,9 @@ int main (int argc, char **argv)
 		b.tail = NULL;
 
 		print_list(&a.head);
-		push(&a.head, &b.head, "pb");
-		push(&a.head, &b.head, "pb");
-		push(&a.head, &b.head, "pb");
-		push(&a.head, &b.head, "pb");
-		push(&a.head, &b.head, "pb");
-		push(&b.head, &a.head, "pa");
-		swap(&a.head, "sa");
-		push(&a.head, &b.head, "pb");
-		push(&a.head, &b.head, "pb");
-		push(&a.head, &b.head, "pb");
-		print_list(&b.head);
-		rev_rotate(&a.head, "rra");
-		rev_rotate(&b.head, "rrb");
-		rev_rotate(&b.head, "rrb");
+		sort_three(&a);
 		print_list(&a.head);
-		print_list(&b.head);
+
 	}
 
 	// t_node *n1 = new_node(123);
