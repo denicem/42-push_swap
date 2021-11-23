@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/23 21:35:16 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/23 23:11:51 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,59 @@ void sort_three(t_linked_list *stack)
 		swap(&stack->head, "sa");
 		rev_rotate(&stack->head, "rra");
 	}
+}
+
+void sort_five(t_linked_list *stack_a, t_linked_list *stack_b)
+{
+	// push smallest number
+	if (stack_a->head->content == 0) // [0]
+		push(&stack_a->head, &stack_b->head, "pb");
+	else if (stack_a->head->next->content == 0) // [1]
+	{
+		rotate(&stack_a->head, "ra");
+		push(&stack_a->head, &stack_b->head, "pb");
+	}
+	else if (stack_a->head->next->next->content == 0) // [2]
+	{
+		rotate(&stack_a->head, "ra");
+		rotate(&stack_a->head, "ra");
+		push(&stack_a->head, &stack_b->head, "pb");
+	}
+	else if (stack_a->head->next->next->next->content == 0) // [3]
+	{
+		rev_rotate(&stack_a->head, "rra");
+		rev_rotate(&stack_a->head, "rra");
+		push(&stack_a->head, &stack_b->head, "pb");
+	}
+	else // [4]
+	{
+		rev_rotate(&stack_a->head, "rra");
+		push(&stack_a->head, &stack_b->head, "pb");
+	}
+
+	// push second smalles number to b
+	if (stack_a->head->content == 1) // [0]
+		push(&stack_a->head, &stack_b->head, "pb");
+	else if (stack_a->head->next->content == 1) // [1]
+	{
+		rotate(&stack_a->head, "ra");
+		push(&stack_a->head, &stack_b->head, "pb");
+	}
+	else if (stack_a->head->next->next->content == 1) // [2]
+	{
+		rotate(&stack_a->head, "ra");
+		rotate(&stack_a->head, "ra");
+		push(&stack_a->head, &stack_b->head, "pb");
+	}
+	else // [3]
+	{
+		rev_rotate(&stack_a->head, "rra");
+		push(&stack_a->head, &stack_b->head, "pb");
+	}
+
+	sort_three(stack_a);
+	push(&stack_b->head, &stack_a->head,  "pa");
+	push(&stack_b->head, &stack_a->head, "pa");
 }
 
 void setIndex(t_node **stack)
@@ -94,7 +147,10 @@ int main (int argc, char **argv)
 
 		print_list(&a.head);
 		setIndex(&a.head);
-		// sort_three(&a);
+		if (argc == 4)
+			sort_three(&a);
+		else if (argc == 6)
+			sort_five(&a, &b);
 		print_list(&a.head);
 
 	}
