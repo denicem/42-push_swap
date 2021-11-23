@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 23:28:10 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/23 03:51:02 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/23 04:02:38 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int main (int argc, char **argv)
 		{
 			char *in = calloc(1,1);
 
-			printf("OPERATOR (Type \"end\" to exit program.): ");
+			printf("OPERATOR (Type \"end\" or 'q' to exit program.): ");
 			scanf("%s", in);
 			// fgets(in, 10, stdin);
 			if (is_operator(in))
@@ -109,10 +109,14 @@ int main (int argc, char **argv)
 				visualize_stacks(&a, &b, last_used_op, operator_used);
 				printf("OPERATOR FOUND. ANOTHER ONE.\n\n");
 			}
-			else if (!strcmp(in, "end"))
+			else if (!strcmp(in, "end") || !strcmp(in, "q"))
 			{
 				free(in);
 				break ;
+			}
+			else if (!strcmp(in, "mis"))
+			{
+				visualize_stacks(&a, &b, last_used_op, --operator_used);
 			}
 			else if (!strcmp(in, "vis"))
 				visualize_stacks(&a, &b, last_used_op, operator_used);
