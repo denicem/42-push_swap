@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:39:28 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/22 17:57:02 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/22 19:21:55 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ void	add_back(t_node **list, t_node *new)
 
 	if (new == NULL)
 		return ;
+	if (*list == NULL)
+	{
+		*list = new;
+		return ;
+	}
 	if ((*list)->next == NULL)
 	{
 		(*list)->next = new;

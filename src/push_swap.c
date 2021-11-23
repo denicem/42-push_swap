@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/22 18:43:28 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/22 22:28:27 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,41 @@
 
 int main (int argc, char **argv)
 {
-	t_node *stack_a;
-	t_node *stack_b;
+	t_linked_list a;
+	t_linked_list b;
+	int i;
 
 	if (argc > 1)
 	{
-		
+		i = 1;
+		while (i < argc)
+		{
+			add_back(&a.head, new_node(ft_atoi(argv[i])));
+			i++;
+		}
+		a.tail = get_last(a.head);
+		b.head = NULL;
+		b.tail = NULL;
+
+		print_list(&a.head);
+		push(&a.head, &b.head, "pb");
+		push(&a.head, &b.head, "pb");
+		push(&a.head, &b.head, "pb");
+		push(&a.head, &b.head, "pb");
+		push(&a.head, &b.head, "pb");
+		push(&b.head, &a.head, "pa");
+		swap(&a.head, "sa");
+		push(&a.head, &b.head, "pb");
+		push(&a.head, &b.head, "pb");
+		push(&a.head, &b.head, "pb");
+		print_list(&b.head);
+		rev_rotate(&a.head, "rra");
+		rev_rotate(&b.head, "rrb");
+		rev_rotate(&b.head, "rrb");
+		print_list(&a.head);
+		print_list(&b.head);
 	}
+
 	// t_node *n1 = new_node(123);
 	// t_node *n2 = new_node(42);
 	// t_node *n3 = new_node(4);
