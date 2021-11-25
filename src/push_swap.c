@@ -6,13 +6,27 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/23 23:11:51 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/24 22:53:46 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 #include <stdio.h>
+
+int is_sorted(t_linked_list *stack)
+{
+	t_node	*list;
+
+	list = stack->head;
+	while (list->next)
+	{
+		if (list->content >= list->next->content)
+			return (0);
+		list = list->next;
+	}
+	return (1);
+}
 
 void sort_three(t_linked_list *stack)
 {
@@ -23,7 +37,6 @@ void sort_three(t_linked_list *stack)
 	a = stack->head->content;
 	b = stack->head->next->content;
 	c = stack->head->next->next->content;
-
 	if (a < b && a < c && b > c) // 1 3 2
 	{
 		swap(&(stack->head), "sa");
@@ -70,7 +83,7 @@ void sort_five(t_linked_list *stack_a, t_linked_list *stack_b)
 		push(&stack_a->head, &stack_b->head, "pb");
 	}
 
-	// push second smalles number to b
+	// push second smallest number to b
 	if (stack_a->head->content == 1) // [0]
 		push(&stack_a->head, &stack_b->head, "pb");
 	else if (stack_a->head->next->content == 1) // [1]
@@ -127,6 +140,50 @@ void setIndex(t_node **stack)
 	}
 }
 
+int	is_reverse(t_node **stack, int min)
+{
+	int pos;
+	t_node *list;
+
+	pos = 0;
+	list = *stack;
+	while (list)
+	{
+		if (list->content == min)
+			break ;
+		pos++;
+		list = list->next;
+	}
+	if (pos > get_listsize(*stack) / 2)
+		return (1);
+	return (0);
+}
+
+void sort_100(t_linked_list *stack_a, t_linked_list *stack_b)
+{
+	int index;
+	t_node *list;
+
+	list = stack_a->head;
+	index = 0;
+	while (get_listsize(stack_a->head) > 3)
+	{
+		while (stack_a->head->content != index)
+		{
+			if (!is_reverse(&stack_a->head, index))
+				rotate(&stack_a->head, "ra");
+			else
+				rev_rotate(&stack_a->head, "rra");
+		}
+		push(&stack_a->head, &stack_b->head, "pb");
+		index++;
+	}
+	sort_three(stack_a);
+	while (get_listsize(stack_b->head))
+		push(&stack_b->head, &stack_a->head, "pa");
+}
+
+
 int main (int argc, char **argv)
 {
 	t_linked_list a;
@@ -149,10 +206,13 @@ int main (int argc, char **argv)
 		setIndex(&a.head);
 		if (argc == 4)
 			sort_three(&a);
-		else if (argc == 6)
-			sort_five(&a, &b);
+		// else if (argc == 6)
+		// 	sort_five(&a, &b);
+		sort_100(&a, &b);
 		print_list(&a.head);
+		// print_list(&b.head);
 
+		return (0);
 	}
 
 	// t_node *n1 = new_node(123);
