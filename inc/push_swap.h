@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/26 23:35:03 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/26 23:41:37 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,10 @@ void	swap(t_node **list, char *str);
 void	rotate(t_node **list, char *str);
 void	rev_rotate(t_node **list, char *str);
 void	push(t_node **list_a, t_node **list_b, char *str);
+
+int		is_sorted(t_node **stack);
+void	sort_three(t_node **stack);
+int		is_reverse(t_node **stack, int min);
+void	sort_100(t_node **stack_a, t_node **stack_b);
 
 #endif
