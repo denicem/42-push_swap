@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/23 19:15:55 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/26 23:35:03 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,12 @@
 // OWN INT LINKED LIST
 // TODO: create linked list initializer for the input (argv)
 // TODO: handle error input (letters and duplicates)
-// TODO: remove tail pointer and the struct linked_list itself and correct every line who calls the linked_list and tail.
 
 typedef struct	s_node
 {
 	int	content;
 	struct s_node *next;
 }	t_node;
-
-typedef struct s_linked_list
-{
-	t_node *head;
-	t_node *tail;
-}	t_linked_list;
 
 t_node	*new_node(int nbr);
 void	add_front(t_node **list, t_node *new);
