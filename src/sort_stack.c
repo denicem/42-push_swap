@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 23:43:06 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/26 23:50:36 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/27 21:52:39 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,58 @@ int	is_reverse(t_node **stack, int min)
 	if (pos > get_listsize(*stack) / 2)
 		return (1);
 	return (0);
+}
+
+int is_reverse_2(t_node **stack, int range)
+{
+	int first;
+	int last;
+	int pos;
+	t_node *list;
+
+	list = *stack;
+	pos = 0;
+	while (list->content >= range)
+	{
+		pos++;
+		list = list->next;
+	}
+	first = pos;
+	while (stack)
+	{
+		if (list->content <= range)
+			last = pos;
+		list = list->next;
+		pos++;
+	}
+	if ((get_listsize(*stack) - last) < first)
+		return (1);
+	return (0);
+}
+
+void sort_big_stack(t_node **stack_a, t_node **stack_b)
+{
+	int part;
+	int count;
+	int stack_a_size;
+
+	count = 0;
+	stack_a_size = get_listsize(*stack_a);
+	part = stack_a_size / 5;
+	while (part <= stack_a_size)
+	{
+		while (count < part)
+		{
+			while ((*stack_a)->content >= part)
+			{
+				if (!is_reverse_2(stack_a, part))
+					rotate(stack_a, "ra");
+				else
+					rev_rotate(stack_a, "rra");
+			}
+			push(stack_a, stack_b, "pb");
+			count++;
+		}
+		part += part;
+	}
 }
