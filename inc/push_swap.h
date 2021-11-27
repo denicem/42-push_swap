@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/26 23:41:37 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/27 01:15:42 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 #include "ft_printf.h"
 
 // OWN INT LINKED LIST
-// TODO: create linked list initializer for the input (argv)
 // TODO: handle error input (letters and duplicates)
 
 typedef struct	s_node
