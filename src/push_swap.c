@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/26 23:43:03 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/27 00:47:39 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,26 @@ void setIndex(t_node **stack)
 	}
 }
 
+void init_stack(t_node **stack, int argc, char **argv)
+{
+	int i;
+
+	i = 1;
+	while (i < argc)
+	{
+		add_back(stack, new_node(ft_atoi(argv[i])));
+		i++;
+	}
+}
+
 int main (int argc, char **argv)
 {
 	t_node *stack_a;
 	t_node *stack_b;
-	int i;
 
 	if (argc > 1)
 	{
-		i = 1;
-		while (i < argc)
-		{
-			add_back(&stack_a, new_node(ft_atoi(argv[i])));
-			i++;
-		}
-
+		init_stack(&stack_a, argc, argv);
 		print_list(&stack_a);
 		setIndex(&stack_a);
 		if (argc == 4)
