@@ -6,17 +6,17 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 23:28:10 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/23 17:31:04 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/27 17:49:09 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 #include <stdio.h>
 
-void visualize_stacks(t_linked_list *a, t_linked_list *b, char *last_used_op,int operator_used)
+void visualize_stacks(t_node **a, t_node **b, char *last_used_op,int operator_used)
 {
-	t_node *stack_a = a->head;
-	t_node *stack_b = b->head;
+	t_node *stack_a = *a;
+	t_node *stack_b = *b;
 
 	printf("\n");
 	printf("%21s", "<< PUSH_SWAP >>");
@@ -46,24 +46,24 @@ void visualize_stacks(t_linked_list *a, t_linked_list *b, char *last_used_op,int
 	printf("---------------------------\n\n");
 }
 
-void exec_operation(t_linked_list *a, t_linked_list *b, char *op)
+void exec_operation(t_node **a, t_node **b, char *op)
 {
 	if (!strcmp(op, "sa"))
-		swap(&a->head, "");
+		swap(a, "");
 	if (!strcmp(op, "sb"))
-		swap(&b->head, "");
+		swap(b, "");
 	if (!strcmp(op, "ra"))
-		rotate(&a->head, "");
+		rotate(a, "");
 	if (!strcmp(op, "rb"))
-		rotate(&b->head, "");
+		rotate(b, "");
 	if (!strcmp(op, "rra"))
-		rev_rotate(&a->head, "");
+		rev_rotate(a, "");
 	if (!strcmp(op, "rrb"))
-		rev_rotate(&b->head, "");
+		rev_rotate(b, "");
 	if (!strcmp(op, "pa"))
-		push(&b->head, &a->head, "");
+		push(b, a, "");
 	if (!strcmp(op, "pb"))
-		push(&a->head, &b->head, "");
+		push(a, b, "");
 }
 
 int is_operator(char *str)
@@ -82,16 +82,13 @@ int main (int argc, char **argv)
 	if (argc > 1)
 	{
 		int i = 1;
-		t_linked_list a;
-		t_linked_list b;
+		t_node *a;
+		t_node *b;
 		int operator_used = 0;
 		char *last_used_op = "-";
 
 		while (i < argc)
-			add_back(&a.head, new_node(ft_atoi(argv[i++])));
-		a.tail = get_last(a.head);
-		b.head = NULL;
-		b.tail = NULL;
+			add_back(&a, new_node(ft_atoi(argv[i++])));
 		visualize_stacks(&a, &b, last_used_op, operator_used);
 
 		while (1)
