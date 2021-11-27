@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:39:41 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/22 17:57:05 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/27 19:12:26 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	clear_list(t_node **list)
 
 	if (*list == NULL)
 		return ;
-	while (tmp->next != NULL)
+	while (tmp)
 	{
 		free(tmp);
 		tmp = tmp->next;
