@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 17:27:47 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 17:40:00 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct	s_node
 
 t_node	*new_node(int nbr);
 void	add_front(t_node **list, t_node *new);
-void	add_back(t_node **list, t_node *new);
+int		add_back(t_node **list, t_node *new);
 int		get_listsize(t_node *list);
 t_node	*get_last(t_node *list);
 void	print_list(t_node **list);

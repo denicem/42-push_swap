@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:39:10 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/22 17:57:00 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 17:37:41 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@ void	add_front(t_node **list, t_node *new)
 {
 	t_node *tmp;
 
-	if (*list == NULL || new == NULL)
+	if (new == NULL)
 		return ;
+	if (*list == NULL)
+	{
+		*list = new;
+		return ;
+	}
 	tmp = *list;
 	*list = new;
 	new->next = tmp;

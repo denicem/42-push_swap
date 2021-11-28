@@ -6,28 +6,30 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:39:28 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/22 19:21:55 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 17:55:01 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	add_back(t_node **list, t_node *new)
+int	add_back(t_node **list, t_node *new)
 {
 	t_node *last;
 
 	if (new == NULL)
-		return ;
+		return (0);
 	if (*list == NULL)
 	{
 		*list = new;
-		return ;
+		return (1);
 	}
-	if ((*list)->next == NULL)
+	last = *list;
+	while (last->next)
 	{
-		(*list)->next = new;
-		return ;
+		if (new->val == last->val)
+			return (0);
+		last = last->next;
 	}
-	last = get_last(*list);
 	last->next = new;
+	return (1);
 }

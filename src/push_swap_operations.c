@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:19:18 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/23 17:30:12 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 17:34:36 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	rev_rotate(t_node **list, char *str)
 	}
 }
 
-void	push(t_node **list_a, t_node **list_b, char *str) // TODO: think of a solution, how to update a new tail if you push something.
+void	push(t_node **list_a, t_node **list_b, char *str)
 {
 	t_node *tmp;
 
