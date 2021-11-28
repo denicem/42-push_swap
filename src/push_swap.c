@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 17:55:11 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 18:04:51 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ int main (int argc, char **argv)
 		print_list(&stack_a);
 		if (argc == 4)
 			sort_three(&stack_a);
-		sort_100(&stack_a, &stack_b);
-		// sort_big_stack(&stack_a, &stack_b);
+		// sort_100(&stack_a, &stack_b);
+		sort_big_stack(&stack_a, &stack_b);
 		print_list(&stack_a);
 		print_list(&stack_b);
 

@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 23:43:06 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 17:27:25 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 18:04:39 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int is_reverse_2(t_node **stack, int range)
 		list = list->next;
 	}
 	first = pos;
-	while (stack)
+	while (list)
 	{
 		if (list->val <= range)
 			last = pos;
