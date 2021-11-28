@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 18:26:40 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 23:26:52 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,7 @@ void	push(t_node **list_a, t_node **list_b, char *str);
 
 int		is_sorted(t_node **stack);
 void	sort_three(t_node **stack);
-int		is_reverse(t_node **stack, int min);
-void	sort_100(t_node **stack_a, t_node **stack_b);
-int 	is_reverse_2(t_node **stack, int range);
-void	sort_big_stack(t_node **stack_a, t_node **stack_b);
-int		is_reverse_3(t_node **stack, int min);
-void	sort_big_stack_back(t_node **stack_a, t_node **stack_b);
+void	sort_small(t_node **stack_a, t_node **stack_b);
+void	sort_big(t_node **stack_a, t_node **stack_b);
 
 #endif

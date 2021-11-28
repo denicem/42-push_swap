@@ -6,7 +6,7 @@
 #    By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/19 00:52:39 by dmontema          #+#    #+#              #
-#    Updated: 2021/11/26 23:44:10 by dmontema         ###   ########.fr        #
+#    Updated: 2021/11/28 23:16:50 by dmontema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC_DIR := src
 
 PS_SRC = $(SRC_DIR)/push_swap.c
 
-SRCS := $(SRC_DIR)/push_swap_operations.c $(SRC_DIR)/sort_stack.c
+SRCS := $(SRC_DIR)/push_swap_operations.c $(SRC_DIR)/sort_stack.c $(SRC_DIR)/sort_small_stack.c
 
 SRCS += 	$(SRC_DIR)/LinkedList/new_node.c		\
 			$(SRC_DIR)/LinkedList/add_front.c		\
