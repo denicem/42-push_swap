@@ -6,12 +6,50 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 23:28:10 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/27 17:49:09 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 19:14:39 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 #include <stdio.h>
+
+void setIndex(t_node **stack)
+{
+	int index;
+	int count;
+	int *arr_stack;
+	t_node *list;
+	t_node *curr_elem;
+
+	arr_stack = malloc(sizeof(int) * get_listsize(*stack));
+	if (arr_stack == NULL)
+		return ;
+	count = 0;
+	curr_elem = *stack;
+	while (curr_elem)
+	{
+		index = 0;
+		list = *stack;
+		while (list)
+		{
+			if (curr_elem->val > list->val)
+				index++;
+			list = list->next;
+		}
+		arr_stack[count] = index;
+		curr_elem = curr_elem->next;
+		count++;
+	}
+	list = *stack;
+	count = 0;
+	while (list)
+	{
+		list->val = arr_stack[count];
+		list = list->next;
+		count++;
+	}
+	free(arr_stack);
+}
 
 void visualize_stacks(t_node **a, t_node **b, char *last_used_op,int operator_used)
 {
@@ -27,11 +65,11 @@ void visualize_stacks(t_node **a, t_node **b, char *last_used_op,int operator_us
 	{
 		printf("\t");
 		if (stack_a != NULL)
-			printf("%3d\t", stack_a->content);
+			printf("%3d\t", stack_a->val);
 		else
 			printf("-|-\t");
 		if (stack_b != NULL)
-			printf("%3d\n", stack_b->content);
+			printf("%3d\n", stack_b->val);
 		else
 			printf("-|-\n");
 
@@ -89,6 +127,7 @@ int main (int argc, char **argv)
 
 		while (i < argc)
 			add_back(&a, new_node(ft_atoi(argv[i++])));
+		setIndex(&a);
 		visualize_stacks(&a, &b, last_used_op, operator_used);
 
 		while (1)

@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 23:43:06 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 18:04:39 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 19:50:43 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int is_reverse_2(t_node **stack, int range)
 	first = pos;
 	while (list)
 	{
-		if (list->val <= range)
+		if (list->val < range)
 			last = pos;
 		list = list->next;
 		pos++;
@@ -126,19 +126,21 @@ int is_reverse_2(t_node **stack, int range)
 void sort_big_stack(t_node **stack_a, t_node **stack_b)
 {
 	int part;
+	int range;
 	int count;
 	int stack_a_size;
 
 	count = 0;
 	stack_a_size = get_listsize(*stack_a);
 	part = stack_a_size / 5;
-	while (part <= stack_a_size)
+	range = part;
+	while (range <= stack_a_size && *stack_a)
 	{
-		while (count < part)
+		while (count < range)
 		{
-			while ((*stack_a)->val >= part)
+			while ((*stack_a)->val >= range)
 			{
-				if (!is_reverse_2(stack_a, part))
+				if (!is_reverse_2(stack_a, range))
 					rotate(stack_a, "ra");
 				else
 					rev_rotate(stack_a, "rra");
@@ -146,6 +148,47 @@ void sort_big_stack(t_node **stack_a, t_node **stack_b)
 			push(stack_a, stack_b, "pb");
 			count++;
 		}
-		part += part;
+		range += part;
 	}
+	sort_big_stack_back(stack_a, stack_b);
+}
+
+void sort_big_stack_back(t_node **stack_a, t_node **stack_b)
+{
+	int index;
+	t_node *list;
+
+	list = *stack_b;
+	index = get_listsize(*stack_b) - 1;
+	while (get_listsize(*stack_b))
+	{
+		while ((*stack_b)->val != index)
+		{
+			if (!is_reverse(stack_b, index))
+				rotate(stack_b, "rb");
+			else
+				rev_rotate(stack_b, "rrb");
+		}
+		push(stack_b, stack_a, "pa");
+		index--;
+	}
+}
+
+int	is_reverse_3(t_node **stack, int max)
+{
+	int pos;
+	t_node *list;
+
+	pos = 0;
+	list = *stack;
+	while (list)
+	{
+		if (list->val == max)
+			break ;
+		pos++;
+		list = list->next;
+	}
+	if (pos > get_listsize(*stack) / 2)
+		return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 17:40:00 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 18:26:40 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ int		is_reverse(t_node **stack, int min);
 void	sort_100(t_node **stack_a, t_node **stack_b);
 int 	is_reverse_2(t_node **stack, int range);
 void	sort_big_stack(t_node **stack_a, t_node **stack_b);
+int		is_reverse_3(t_node **stack, int min);
+void	sort_big_stack_back(t_node **stack_a, t_node **stack_b);
 
 #endif
