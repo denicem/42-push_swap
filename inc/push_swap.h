@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/27 21:53:33 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 17:27:47 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 typedef struct	s_node
 {
-	int	content;
+	int	val;
 	struct s_node *next;
 }	t_node;
 

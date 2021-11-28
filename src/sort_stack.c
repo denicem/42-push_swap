@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 23:43:06 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/27 21:52:39 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/28 17:27:25 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int is_sorted(t_node **stack)
 	list = *stack;
 	while (list->next)
 	{
-		if (list->content >= list->next->content)
+		if (list->val >= list->next->val)
 			return (0);
 		list = list->next;
 	}
@@ -32,9 +32,9 @@ void sort_three(t_node **stack)
 	int b;
 	int c;
 
-	a = (*stack)->content;
-	b = (*stack)->next->content;
-	c = (*stack)->next->next->content;
+	a = (*stack)->val;
+	b = (*stack)->next->val;
+	c = (*stack)->next->next->val;
 	if (a < b && a < c && b > c) // 1 3 2
 	{
 		swap(stack, "sa");
@@ -62,7 +62,7 @@ void sort_100(t_node **stack_a, t_node **stack_b)
 	index = 0;
 	while (get_listsize(*stack_a) > 3)
 	{
-		while ((*stack_a)->content != index)
+		while ((*stack_a)->val != index)
 		{
 			if (!is_reverse(stack_a, index))
 				rotate(stack_a, "ra");
@@ -86,7 +86,7 @@ int	is_reverse(t_node **stack, int min)
 	list = *stack;
 	while (list)
 	{
-		if (list->content == min)
+		if (list->val == min)
 			break ;
 		pos++;
 		list = list->next;
@@ -105,7 +105,7 @@ int is_reverse_2(t_node **stack, int range)
 
 	list = *stack;
 	pos = 0;
-	while (list->content >= range)
+	while (list->val >= range)
 	{
 		pos++;
 		list = list->next;
@@ -113,7 +113,7 @@ int is_reverse_2(t_node **stack, int range)
 	first = pos;
 	while (stack)
 	{
-		if (list->content <= range)
+		if (list->val <= range)
 			last = pos;
 		list = list->next;
 		pos++;
@@ -136,7 +136,7 @@ void sort_big_stack(t_node **stack_a, t_node **stack_b)
 	{
 		while (count < part)
 		{
-			while ((*stack_a)->content >= part)
+			while ((*stack_a)->val >= part)
 			{
 				if (!is_reverse_2(stack_a, part))
 					rotate(stack_a, "ra");
