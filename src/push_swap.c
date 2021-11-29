@@ -6,65 +6,13 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 23:28:00 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:21:32 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 #include <stdio.h>
-
-void setIndex(t_node **stack)
-{
-	int index;
-	int count;
-	int *arr_stack;
-	t_node *list;
-	t_node *curr_elem;
-
-	arr_stack = malloc(sizeof(int) * get_listsize(*stack));
-	if (arr_stack == NULL)
-		return ;
-	count = 0;
-	curr_elem = *stack;
-	while (curr_elem)
-	{
-		index = 0;
-		list = *stack;
-		while (list)
-		{
-			if (curr_elem->val > list->val)
-				index++;
-			list = list->next;
-		}
-		arr_stack[count] = index;
-		curr_elem = curr_elem->next;
-		count++;
-	}
-	list = *stack;
-	count = 0;
-	while (list)
-	{
-		list->val = arr_stack[count];
-		list = list->next;
-		count++;
-	}
-	free(arr_stack);
-}
-
-int init_stack(t_node **stack, int argc, char **argv)
-{
-	int i;
-
-	i = 1;
-	while (i < argc)
-	{
-		if (!add_back(stack, new_node(ft_atoi(argv[i]))))
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 int main (int argc, char **argv)
 {
