@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 23:43:06 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 23:36:16 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/29 23:49:08 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void sort_big_back(t_node **stack_a, t_node **stack_b)
 			if (!is_reverse_3(stack_b, index))
 				rotate(stack_b, "rb");
 			else
-				rev_rotate(stack_b, "rrb");
+				rev_rotate(stack_b, "rb");
 		}
 		push(stack_b, stack_a, "pa");
 		index--;
@@ -88,7 +88,7 @@ void sort_big(t_node **stack_a, t_node **stack_b)
 
 	count = 0;
 	stack_a_size = get_listsize(*stack_a);
-	part = stack_a_size / 6;
+	part = stack_a_size / 5;
 	range = part;
 	while (range <= stack_a_size && *stack_a)
 	{
@@ -106,5 +106,7 @@ void sort_big(t_node **stack_a, t_node **stack_b)
 		}
 		range += part;
 	}
+	while (*stack_a)
+		push(stack_a, stack_b, "pb");
 	sort_big_back(stack_a, stack_b);
 }
