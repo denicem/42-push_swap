@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/30 01:44:33 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/30 02:10:35 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ int main (int argc, char **argv)
 			return (0);
 		}
 		print_list(&stack_a);
-		// setIndex(&stack_a);
-		// print_list(&stack_a);
-		// if (argc == 4)
-		// 	sort_three(&stack_a);
-		// if (argc <= 16)
-		// 	sort_small(&stack_a, &stack_b);
-		// else
-		// 	sort_big(&stack_a, &stack_b);
-		// print_list(&stack_a);
+		set_index(&stack_a);
+		print_list(&stack_a);
+		if (argc == 4)
+			sort_three(&stack_a);
+		if (argc <= 16)
+			sort_small(&stack_a, &stack_b);
+		else
+			sort_big(&stack_a, &stack_b);
+		print_list(&stack_a);
 		print_list(&stack_b);
 
 		clear_list(&stack_a);
-		system("leaks push_swap");
+		// system("leaks push_swap");
 	}
 	return (0);
 }

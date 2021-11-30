@@ -6,23 +6,19 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 01:59:30 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/30 02:00:22 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/11/30 02:17:50 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void setIndex(t_node **stack)
+static void	set_arr(t_node **stack, int **arr_stack)
 {
-	int index;
-	int count;
-	int *arr_stack;
-	t_node *list;
-	t_node *curr_elem;
+	int		index;
+	int		count;
+	t_node	*curr_elem;
+	t_node	*list;
 
-	arr_stack = malloc(sizeof(int) * get_listsize(*stack));
-	if (arr_stack == NULL)
-		return ;
 	count = 0;
 	curr_elem = *stack;
 	while (curr_elem)
@@ -35,10 +31,22 @@ void setIndex(t_node **stack)
 				index++;
 			list = list->next;
 		}
-		arr_stack[count] = index;
+		(*arr_stack)[count] = index;
 		curr_elem = curr_elem->next;
 		count++;
 	}
+}
+
+void	set_index(t_node **stack)
+{
+	int		count;
+	int		*arr_stack;
+	t_node	*list;
+
+	arr_stack = malloc(sizeof(int) * get_listsize(*stack));
+	if (arr_stack == NULL)
+		return ;
+	set_arr(stack, &arr_stack);
 	list = *stack;
 	count = 0;
 	while (list)
