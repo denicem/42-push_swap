@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/30 02:10:35 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/03 19:00:32 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,32 @@
 
 #include <stdio.h>
 
-int main (int argc, char **argv)
+void	exit_prg(t_node **stack)
 {
-	t_node *stack_a;
-	t_node *stack_b;
+	clear_list(stack);
+	write (2, "Error.\n", 7);
+	exit(0);
+}
+
+int	main(int argc, char **argv)
+{
+	t_node	*stack_a;
+	t_node	*stack_b;
+	int		init_size;
 
 	if (argc > 1)
 	{
-		if (!init_stack(&stack_a, argc, argv))
-		{
-			if (stack_a != NULL)
-				clear_list(&stack_a);
-			ft_printf("Error.\n");
-			return (0);
-		}
-		print_list(&stack_a);
+		init_size = init_stack(&stack_a, argc, argv);
 		set_index(&stack_a);
-		print_list(&stack_a);
-		if (argc == 4)
+		if (is_sorted(&stack_a))
+			return (0);
+		if (init_size == 4)
 			sort_three(&stack_a);
-		if (argc <= 16)
+		if (init_size <= 15)
 			sort_small(&stack_a, &stack_b);
 		else
-			sort_big(&stack_a, &stack_b);
-		print_list(&stack_a);
-		print_list(&stack_b);
-
+			sort_big(&stack_a, &stack_b, init_size);
 		clear_list(&stack_a);
-		// system("leaks push_swap");
 	}
 	return (0);
 }

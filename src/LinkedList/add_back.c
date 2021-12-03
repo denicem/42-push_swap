@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:39:28 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 18:08:56 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:52:58 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	add_back(t_node **list, t_node *new)
 {
-	t_node *last;
+	t_node	*last;
 
 	if (new == NULL)
 		return (0);
@@ -28,8 +28,8 @@ int	add_back(t_node **list, t_node *new)
 	{
 		if (new->val == last->val)
 			return (0);
-		if(!last->next)
-			break;
+		if (!last->next)
+			break ;
 		last = last->next;
 	}
 	last->next = new;

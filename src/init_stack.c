@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 21:20:59 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/30 02:00:19 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:56:55 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	free_split_string(char **str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -22,17 +22,15 @@ static int	free_split_string(char **str)
 	return (0);
 }
 
-static int add_strings(t_node **stack, char *str)
+static int	add_strings(t_node **stack, char *str)
 {
-	char **numbers;
+	char	**numbers;
 
 	if (!str)
 		return (0);
 	numbers = ft_split(str, ' ');
 	if (!numbers)
-	{
 		return (0);
-	}
 	while (*numbers)
 	{
 		if (!add_back(stack, new_node(ft_atoi(*numbers))))
@@ -43,7 +41,7 @@ static int add_strings(t_node **stack, char *str)
 	return (1);
 }
 
-static int has_letter(char *str)
+static int	has_letter(char *str)
 {
 	if (!str)
 		return (0);
@@ -55,7 +53,7 @@ static int has_letter(char *str)
 	return (0);
 }
 
-static int def_input(char *str)
+static int	def_input(char *str)
 {
 	if (!str || has_letter(str))
 		return (0);
@@ -68,9 +66,9 @@ static int def_input(char *str)
 	return (1);
 }
 
-int init_stack(t_node **stack, int argc, char **argv)
+int	init_stack(t_node **stack, int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < argc)
@@ -78,16 +76,16 @@ int init_stack(t_node **stack, int argc, char **argv)
 		if (def_input(argv[i]) == 1)
 		{
 			if (!add_back(stack, new_node(ft_atoi(argv[i]))))
-				return (0);
+				exit_prg(stack);
 		}
 		else if (def_input(argv[i]) == 2)
 		{
 			if (!add_strings(stack, argv[i]))
-				return (0);
+				exit_prg(stack);
 		}
 		else
-			return (0);
+			exit_prg(stack);
 		i++;
 	}
-	return (1);
+	return (get_listsize(*stack));
 }

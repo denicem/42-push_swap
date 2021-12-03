@@ -6,15 +6,15 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:39:50 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 17:26:20 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:55:53 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void print_list(t_node **list) //TODO: after pushing last element from b to a and want to print out b, it segfaults.
+void	print_list(t_node **list)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	if (*list)
 	{

@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:19:18 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 17:34:36 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:50:58 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap(t_node **list, char *str)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	if (*list && (*list)->next)
 	{
@@ -29,8 +29,8 @@ void	swap(t_node **list, char *str)
 
 void	rotate(t_node **list, char *str)
 {
-	t_node *tmp;
-	t_node *tail;
+	t_node	*tmp;
+	t_node	*tail;
 
 	tail = get_last(*list);
 	if (*list && (*list)->next)
@@ -46,8 +46,8 @@ void	rotate(t_node **list, char *str)
 
 void	rev_rotate(t_node **list, char *str)
 {
-	t_node *ptr1;
-	t_node *ptr2;
+	t_node	*ptr1;
+	t_node	*ptr2;
 
 	if (*list)
 	{
@@ -71,7 +71,7 @@ void	rev_rotate(t_node **list, char *str)
 
 void	push(t_node **list_a, t_node **list_b, char *str)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	if (*list_a)
 	{
