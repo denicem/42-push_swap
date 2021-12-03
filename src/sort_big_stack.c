@@ -6,13 +6,13 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 23:43:06 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/03 19:00:23 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/03 19:08:17 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static int	is_reverse_3(t_node **stack, int max)
+static int	is_reverse(t_node **stack, int max)
 {
 	int		pos;
 	t_node	*list;
@@ -31,7 +31,7 @@ static int	is_reverse_3(t_node **stack, int max)
 	return (0);
 }
 
-static int	is_reverse_2(t_node **stack, int range)
+static int	is_reverse_two_vals(t_node **stack, int range)
 {
 	int		first;
 	int		last;
@@ -58,7 +58,7 @@ static int	is_reverse_2(t_node **stack, int range)
 	return (0);
 }
 
-static void	sort_big_back(t_node **stack_a, t_node **stack_b)
+static void	push_elem_back(t_node **stack_a, t_node **stack_b)
 {
 	int		index;
 	t_node	*list;
@@ -67,7 +67,7 @@ static void	sort_big_back(t_node **stack_a, t_node **stack_b)
 	index = get_listsize(*stack_b) - 1;
 	while (get_listsize(*stack_b))
 	{
-		if (!is_reverse_3(stack_b, index))
+		if (!is_reverse(stack_b, index))
 			while ((*stack_b)->val != index)
 				rotate(stack_b, "rb");
 		else
@@ -91,7 +91,7 @@ void	sort_big(t_node **stack_a, t_node **stack_b, int init_size)
 	{
 		while (count < range)
 		{
-			if (!is_reverse_2(stack_a, range))
+			if (!is_reverse_two_vals(stack_a, range))
 				while ((*stack_a)->val >= range)
 					rotate(stack_a, "ra");
 			else
@@ -104,5 +104,5 @@ void	sort_big(t_node **stack_a, t_node **stack_b, int init_size)
 	}
 	while (*stack_a)
 		push(stack_a, stack_b, "pb");
-	sort_big_back(stack_a, stack_b);
+	push_elem_back(stack_a, stack_b);
 }
