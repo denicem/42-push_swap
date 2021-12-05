@@ -6,50 +6,12 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 23:28:10 by dmontema          #+#    #+#             */
-/*   Updated: 2021/11/28 19:14:39 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/05 19:32:59 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 #include <stdio.h>
-
-void setIndex(t_node **stack)
-{
-	int index;
-	int count;
-	int *arr_stack;
-	t_node *list;
-	t_node *curr_elem;
-
-	arr_stack = malloc(sizeof(int) * get_listsize(*stack));
-	if (arr_stack == NULL)
-		return ;
-	count = 0;
-	curr_elem = *stack;
-	while (curr_elem)
-	{
-		index = 0;
-		list = *stack;
-		while (list)
-		{
-			if (curr_elem->val > list->val)
-				index++;
-			list = list->next;
-		}
-		arr_stack[count] = index;
-		curr_elem = curr_elem->next;
-		count++;
-	}
-	list = *stack;
-	count = 0;
-	while (list)
-	{
-		list->val = arr_stack[count];
-		list = list->next;
-		count++;
-	}
-	free(arr_stack);
-}
 
 void visualize_stacks(t_node **a, t_node **b, char *last_used_op,int operator_used)
 {
@@ -115,6 +77,13 @@ int is_operator(char *str)
 		return (0);
 }
 
+void	exit_prg(t_node **stack)
+{
+	clear_list(stack);
+	write (2, "Error.\n", 7);
+	exit(0);
+}
+
 int main (int argc, char **argv)
 {
 	if (argc > 1)
@@ -126,8 +95,8 @@ int main (int argc, char **argv)
 		char *last_used_op = "-";
 
 		while (i < argc)
-			add_back(&a, new_node(ft_atoi(argv[i++])));
-		setIndex(&a);
+			add_back(&a, new_node(ft_atoi_ps(argv[i++], &a)));
+		set_index(&a);
 		visualize_stacks(&a, &b, last_used_op, operator_used);
 
 		while (1)
