@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 23:43:06 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/04 23:28:15 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/05 19:22:47 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,14 @@ static void	push_elem_back(t_node **stack_a, t_node **stack_b)
 	}
 }
 
-void	sort_big(t_node **stack_a, t_node **stack_b, int init_size)
+void	sort_big(t_node **stack_a, t_node **stack_b, int init_size, int divider)
 {
 	int	part;
 	int	range;
 	int	count;
 
 	count = 0;
-	part = init_size / 5;
+	part = init_size / divider;
 	range = part;
 	while (range <= init_size && *stack_a)
 	{
