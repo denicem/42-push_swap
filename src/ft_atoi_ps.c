@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 17:42:04 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/05 17:56:29 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 00:42:03 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ static int	ft_calcRes(const char *str, int sign, t_node **stack)
 	long	res;
 
 	res = 0;
-	while (ft_isdigit(*str))
+	if (!ft_isdigit(*str))
+		exit_prg(stack);
+	while (*str)
 	{
 		if (sign == -1 && res >= INT_MAX)
 			exit_prg(stack);
