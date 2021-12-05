@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/03 18:59:42 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/05 17:57:12 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	rev_rotate(t_node **list, char *str);
 void	push(t_node **list_a, t_node **list_b, char *str);
 
 int		init_stack(t_node **stack, int argc, char **argv);
+int		ft_atoi_ps(const char *str, t_node **stack);
 void	set_index(t_node **stack);
 void	exit_prg(t_node **stack);
 

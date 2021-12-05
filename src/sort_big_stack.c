@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 23:43:06 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/03 19:08:17 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/04 23:28:15 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	sort_big(t_node **stack_a, t_node **stack_b, int init_size)
 	int	count;
 
 	count = 0;
-	part = init_size / 10;
+	part = init_size / 5;
 	range = part;
 	while (range <= init_size && *stack_a)
 	{

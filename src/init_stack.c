@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 21:20:59 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/03 18:56:55 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/05 17:56:48 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	add_strings(t_node **stack, char *str)
 		return (0);
 	while (*numbers)
 	{
-		if (!add_back(stack, new_node(ft_atoi(*numbers))))
+		if (!add_back(stack, new_node(ft_atoi_ps(*numbers, stack))))
 			return (free_split_string(numbers));
 		numbers++;
 	}
@@ -75,7 +75,7 @@ int	init_stack(t_node **stack, int argc, char **argv)
 	{
 		if (def_input(argv[i]) == 1)
 		{
-			if (!add_back(stack, new_node(ft_atoi(argv[i]))))
+			if (!add_back(stack, new_node(ft_atoi_ps(argv[i], stack))))
 				exit_prg(stack);
 		}
 		else if (def_input(argv[i]) == 2)

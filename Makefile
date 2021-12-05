@@ -6,19 +6,24 @@
 #    By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/19 00:52:39 by dmontema          #+#    #+#              #
-#    Updated: 2021/11/30 02:00:07 by dmontema         ###   ########.fr        #
+#    Updated: 2021/12/05 17:49:53 by dmontema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := push_swap
+NAME	:=	push_swap
 
-SRC_DIR := src
+SRC_DIR	:=	src
 
-PS_SRC = $(SRC_DIR)/push_swap.c
+PS_SRC	:=	$(SRC_DIR)/push_swap.c
 
-SRCS := $(SRC_DIR)/push_swap_operations.c $(SRC_DIR)/init_stack.c $(SRC_DIR)/index_stack.c $(SRC_DIR)/sort_big_stack.c $(SRC_DIR)/sort_small_stack.c
+SRCS	:=	$(SRC_DIR)/push_swap_operations.c \
+			$(SRC_DIR)/init_stack.c \
+			$(SRC_DIR)/ft_atoi_ps.c \
+			$(SRC_DIR)/index_stack.c \
+			$(SRC_DIR)/sort_big_stack.c \
+			$(SRC_DIR)/sort_small_stack.c
 
-SRCS += 	$(SRC_DIR)/LinkedList/new_node.c		\
+SRCS	+=	$(SRC_DIR)/LinkedList/new_node.c		\
 			$(SRC_DIR)/LinkedList/add_front.c		\
 			$(SRC_DIR)/LinkedList/add_back.c		\
 			$(SRC_DIR)/LinkedList/get_listsize.c	\
@@ -26,7 +31,7 @@ SRCS += 	$(SRC_DIR)/LinkedList/new_node.c		\
 			$(SRC_DIR)/LinkedList/print_list.c		\
 			$(SRC_DIR)/LinkedList/clear_list.c
 
-LIBS = lib/libft.a lib/libftprintf.a
+LIBS	:=	lib/libft.a lib/libftprintf.a
 
 CFLAGS	=	-Wall -Wextra -Werror
 
