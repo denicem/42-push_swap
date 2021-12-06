@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 23:28:10 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/05 19:32:59 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 14:48:54 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int is_operator(char *str)
 		return (0);
 }
 
-void	exit_prg(t_node **stack)
+void	error_exit_prg(t_node **stack)
 {
 	clear_list(stack);
 	write (2, "Error.\n", 7);

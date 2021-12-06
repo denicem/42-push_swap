@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 13:09:32 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 14:49:21 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	push(t_node **list_a, t_node **list_b, char *str);
 int		init_stack(t_node **stack, int argc, char **argv);
 int		ft_atoi_ps(const char *str, t_node **stack);
 void	set_index(t_node **stack);
-void	exit_prg(t_node **stack);
+void	error_exit_prg(t_node **stack);
 
 int		is_sorted(t_node **stack);
 void	sort_three(t_node **stack);

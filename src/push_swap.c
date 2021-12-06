@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 13:15:25 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 14:50:35 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 
-void	exit_prg(t_node **stack)
+void	error_exit_prg(t_node **stack)
 {
 	clear_list(stack);
 	write (2, "Error.\n", 7);
