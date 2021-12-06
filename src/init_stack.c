@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 21:20:59 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 13:04:33 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 13:39:48 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static int	free_split_string(char **str)
 	{
 		free(str[i++]);
 	}
+	free(str);
 	return (0);
 }
 
