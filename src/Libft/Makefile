@@ -6,15 +6,15 @@
 #    By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 16:06:18 by dmontema          #+#    #+#              #
-#    Updated: 2021/09/17 22:42:25 by dmontema         ###   ########.fr        #
+#    Updated: 2021/12/06 22:31:19 by dmontema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libft.a
-HEADERFILES	=	./libft.h
+NAME		:=	../../lib/libft.a
+HEADERFILES	:=	./libft.h
 
 
-LIBC_SRCS	=	ft_atoi.c		\
+LIBC_SRCS	:=	ft_atoi.c		\
 				ft_bzero.c 		\
 				ft_isalnum.c	\
 				ft_isalpha.c	\
@@ -49,9 +49,7 @@ LIBC_SRCS	=	ft_atoi.c		\
 				ft_strtrim.c	\
 				ft_split.c
 
-LIBC_OBJS	=	$(LIBC_SRCS:.c=.o)
-
-BONUS_SRCS	=	ft_lstnew.c		\
+LIBC_SRCS	+=	ft_lstnew.c		\
 				ft_lstadd_front.c \
 				ft_lstsize.c	\
 				ft_lstlast.c	\
@@ -61,10 +59,10 @@ BONUS_SRCS	=	ft_lstnew.c		\
 				ft_lstclear.c	\
 				ft_lstmap.c
 
-BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
+LIBC_OBJS	=	$(LIBC_SRCS:.c=.o)
 
 CC 			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror  
 AR			=	ar rc
 
 all:	$(NAME)
@@ -72,14 +70,11 @@ all:	$(NAME)
 $(NAME): $(LIBC_OBJS)
 	$(AR) $(NAME) $(LIBC_OBJS)
 
-bonus: $(NAME) $(BONUS_OBJS)
-	$(AR) $(NAME) $(BONUS_OBJS)
-
 .c.o:	
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 clean:
-	rm -f $(LIBC_OBJS) $(BONUS_OBJS)
+	rm -f $(LIBC_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
