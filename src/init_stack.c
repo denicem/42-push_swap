@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 21:20:59 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/05 17:56:48 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 13:04:33 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,30 @@
 static int	free_split_string(char **str)
 {
 	int	i;
-
 	i = 0;
 	while (str[i])
+	{
 		free(str[i++]);
+	}
 	return (0);
 }
 
 static int	add_strings(t_node **stack, char *str)
 {
 	char	**numbers;
+	int i;
 
 	if (!str)
 		return (0);
+	i = 0;
 	numbers = ft_split(str, ' ');
 	if (!numbers)
 		return (0);
-	while (*numbers)
+	while (numbers[i])
 	{
-		if (!add_back(stack, new_node(ft_atoi_ps(*numbers, stack))))
+		if (!add_back(stack, new_node(ft_atoi_ps(numbers[i], stack))))
 			return (free_split_string(numbers));
-		numbers++;
+		i++;
 	}
 	free_split_string(numbers);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/05 19:22:40 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 13:15:25 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	t_node	*stack_a;
 	t_node	*stack_b;
 	int		init_size;
-	int		divider;
+	int		div;
 
 	if (argc > 1)
 	{
@@ -40,13 +40,14 @@ int	main(int argc, char **argv)
 			sort_small(&stack_a, &stack_b);
 		else
 		{
-			if (init_size <= 100)
-				divider = 5;
-			else 
-				divider = 10;
-			sort_big(&stack_a, &stack_b, init_size, divider);
+			div = 5;
+			if (init_size > 100)
+				div += init_size / 100;
+			sort_big(&stack_a, &stack_b, init_size, div);
 		}
 		clear_list(&stack_a);
+		clear_list(&stack_b);
 	}
+	system("leaks push_swap");
 	return (0);
 }
