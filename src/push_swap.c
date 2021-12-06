@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 18:25:27 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:38:32 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 void	error_exit_prg(t_node **stack)
 {
 	clear_list(stack);
-	write (2, "Error.\n", 7);
-	exit(0);
+	write (2, "Error\n", 6);
+	exit(1);
 }
 
 int	main(int argc, char **argv)
@@ -32,11 +32,11 @@ int	main(int argc, char **argv)
 		init_size = init_stack(&stack_a, argc, argv);
 		set_index(&stack_a);
 		if (is_sorted(&stack_a))
-			return (0);
+			exit(0);
 		if (init_size == 2)
 		{
 			swap(&stack_a, "sa");
-			return (0);
+			exit(0);
 		}
 		if (init_size == 3)
 			sort_three(&stack_a);
@@ -47,5 +47,5 @@ int	main(int argc, char **argv)
 		clear_list(&stack_a);
 		clear_list(&stack_b);
 	}
-	return (0);
+	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 21:20:59 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 15:52:39 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:27:46 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int	free_split_string(char **str)
 {
 	int	i;
+
 	i = 0;
 	while (str[i])
 		free(str[i++]);
@@ -25,7 +26,7 @@ static int	free_split_string(char **str)
 static int	add_strings(t_node **stack, char *str)
 {
 	char	**numbers;
-	int i;
+	int		i;
 
 	if (!str)
 		return (0);

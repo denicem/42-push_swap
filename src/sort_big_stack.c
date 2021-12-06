@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 23:43:06 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 20:18:09 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:27:54 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ static int	is_reverse_two_vals(t_node **stack, int range)
 
 static int	get_chunk_size(int init_size)
 {
-	int div;
-	int res;
+	int	div;
+	int	res;
 
 	div = 5;
 	if (init_size > 100)

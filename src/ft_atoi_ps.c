@@ -6,13 +6,13 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 17:42:04 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 14:48:20 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:27:19 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static int is_only_digit(const char *str)
+static int	is_only_digit(const char *str)
 {
 	while (*str)
 	{
