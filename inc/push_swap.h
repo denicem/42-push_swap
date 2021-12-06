@@ -6,24 +6,24 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 00:50:03 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 14:49:21 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 17:57:10 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define	PUSH_SWAP_H
 
-#include <stdlib.h>
-#include <unistd.h>
+# include	<stdlib.h>
+# include	<unistd.h>
 
-#include "libft.h"
-#include "ft_printf.h"
+# include	"libft.h"
+# include	"ft_printf.h"
 
-typedef struct	s_node
+typedef struct s_node
 {
-	int	val;
-	struct s_node *next;
-}				t_node;
+	int				val;
+	struct s_node	*next;
+}	t_node;
 
 t_node	*new_node(int nbr);
 void	add_front(t_node **list, t_node *new);
@@ -46,6 +46,6 @@ void	error_exit_prg(t_node **stack);
 int		is_sorted(t_node **stack);
 void	sort_three(t_node **stack);
 void	sort_small(t_node **stack_a, t_node **stack_b);
-void	sort_big(t_node **stack_a, t_node **stack_b, int init_size, int div);
+void	sort_big(t_node **stack_a, t_node **stack_b, int init_size);
 
-#endif
+#	endif

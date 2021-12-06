@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 23:43:06 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 16:22:06 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 18:01:33 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,26 @@ static int	is_reverse(t_node **stack, int max)
 	if (pos > get_listsize(*stack) / 2)
 		return (1);
 	return (0);
+}
+
+static void	push_elem_back(t_node **stack_a, t_node **stack_b)
+{
+	int		index;
+	t_node	*list;
+
+	list = *stack_b;
+	index = get_listsize(*stack_b) - 1;
+	while (*stack_b)
+	{
+		if (!is_reverse(stack_b, index))
+			while ((*stack_b)->val != index)
+				rotate(stack_b, "rb");
+		else
+			while ((*stack_b)->val != index)
+				rev_rotate(stack_b, "rrb");
+		push(stack_b, stack_a, "pa");
+		index--;
+	}
 }
 
 static int	is_reverse_two_vals(t_node **stack, int range)
@@ -58,35 +78,27 @@ static int	is_reverse_two_vals(t_node **stack, int range)
 	return (0);
 }
 
-static void	push_elem_back(t_node **stack_a, t_node **stack_b)
+static int	get_chunk_size(int init_size)
 {
-	int		index;
-	t_node	*list;
+	int div;
+	int res;
 
-	list = *stack_b;
-	index = get_listsize(*stack_b) - 1;
-	while (*stack_b)
-	{
-		if (!is_reverse(stack_b, index))
-			while ((*stack_b)->val != index)
-				rotate(stack_b, "rb");
-		else
-			while ((*stack_b)->val != index)
-				rev_rotate(stack_b, "rrb");
-		push(stack_b, stack_a, "pa");
-		index--;
-	}
+	div = 5;
+	if (init_size > 100)
+		div += init_size / 100;
+	res = init_size / div;
+	return (res);
 }
 
-void	sort_big(t_node **stack_a, t_node **stack_b, int init_size, int div)
+void	sort_big(t_node **stack_a, t_node **stack_b, int init_size)
 {
 	int	part;
 	int	range;
 	int	count;
 
-	count = 0;
-	part = init_size / div;
+	part = get_chunk_size(init_size);
 	range = part;
+	count = 0;
 	while (range <= init_size)
 	{
 		while (count < range)
