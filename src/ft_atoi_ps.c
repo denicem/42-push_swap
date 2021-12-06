@@ -6,11 +6,22 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 17:42:04 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 00:42:03 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 00:58:02 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+static int is_only_digit(const char *str)
+{
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			return (0);
+		str++;
+	}
+	return (1);
+}
 
 static int	ft_isWhitespace(char c)
 {
@@ -24,7 +35,7 @@ static int	ft_calcRes(const char *str, int sign, t_node **stack)
 	long	res;
 
 	res = 0;
-	if (!ft_isdigit(*str))
+	if (!is_only_digit(str))
 		exit_prg(stack);
 	while (*str)
 	{
