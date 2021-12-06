@@ -6,30 +6,11 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 23:43:06 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 18:01:33 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:18:09 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-static int	is_reverse(t_node **stack, int max)
-{
-	int		pos;
-	t_node	*list;
-
-	pos = 0;
-	list = *stack;
-	while (list)
-	{
-		if (list->val == max)
-			break ;
-		pos++;
-		list = list->next;
-	}
-	if (pos > get_listsize(*stack) / 2)
-		return (1);
-	return (0);
-}
 
 static void	push_elem_back(t_node **stack_a, t_node **stack_b)
 {

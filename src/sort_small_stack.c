@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 23:11:26 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 16:09:08 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:16:31 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	sort_three(t_node **stack)
 	}
 }
 
-static int	is_reverse(t_node **stack, int min)
+int	is_reverse(t_node **stack, int val)
 {
 	int		pos;
 	t_node	*list;
@@ -62,7 +62,7 @@ static int	is_reverse(t_node **stack, int min)
 	list = *stack;
 	while (list)
 	{
-		if (list->val == min)
+		if (list->val == val)
 			break ;
 		pos++;
 		list = list->next;
