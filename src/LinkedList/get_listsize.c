@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:38:56 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/03 18:54:23 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 15:36:47 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ int	get_listsize(t_node *list)
 {
 	int	res;
 
-	if (list == NULL)
-		return (0);
-	res = 1;
-	while (list->next != NULL)
+	res = 0;
+	while (list)
 	{
 		res++;
 		list = list->next;

@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 17:19:18 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/03 18:50:58 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 15:45:45 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	rotate(t_node **list, char *str)
 	t_node	*tmp;
 	t_node	*tail;
 
-	tail = get_last(*list);
 	if (*list && (*list)->next)
 	{
+		tail = get_last(*list);
 		tmp = *list;
 		*list = (*list)->next;
 		tail->next = tmp;
@@ -52,10 +52,10 @@ void	rev_rotate(t_node **list, char *str)
 	if (*list)
 	{
 		ptr1 = *list;
-		while (ptr1->next != NULL)
+		while (ptr1->next)
 		{
 			ptr2 = ptr1->next;
-			if (ptr2->next == NULL)
+			if (!ptr2->next)
 			{
 				ptr2->next = *list;
 				ptr1->next = NULL;

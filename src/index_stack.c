@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 01:59:30 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/03 18:56:24 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:01:40 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	set_index(t_node **stack)
 	t_node	*list;
 
 	arr_stack = malloc(sizeof(int) * get_listsize(*stack));
-	if (arr_stack == NULL)
-		return ;
+	if (!arr_stack)
+		error_exit_prg(stack);
 	set_arr(stack, &arr_stack);
 	list = *stack;
 	count = 0;

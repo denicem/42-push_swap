@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 23:11:26 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/03 19:01:03 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:09:08 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,12 @@ void	sort_small(t_node **stack_a, t_node **stack_b)
 			while ((*stack_a)->val != index)
 				rev_rotate(stack_a, "rra");
 		push(stack_a, stack_b, "pb");
+		if (is_sorted(stack_a))
+			break ;
 		index++;
 	}
-	sort_three(stack_a);
-	while (get_listsize(*stack_b))
+	if (get_listsize(*stack_a) <= 3)
+		sort_three(stack_a);
+	while (*stack_b)
 		push(stack_b, stack_a, "pa");
 }

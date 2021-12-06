@@ -6,7 +6,7 @@
 /*   By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 19:55:43 by dmontema          #+#    #+#             */
-/*   Updated: 2021/12/06 14:50:35 by dmontema         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:19:36 by dmontema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		set_index(&stack_a);
 		if (is_sorted(&stack_a))
 			return (0);
-		if (init_size == 4)
+		if (init_size == 3)
 			sort_three(&stack_a);
 		if (init_size <= 15)
 			sort_small(&stack_a, &stack_b);
@@ -48,6 +48,5 @@ int	main(int argc, char **argv)
 		clear_list(&stack_a);
 		clear_list(&stack_b);
 	}
-	system("leaks push_swap");
 	return (0);
 }
