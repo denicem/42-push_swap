@@ -6,11 +6,11 @@
 #    By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/25 16:06:18 by dmontema          #+#    #+#              #
-#    Updated: 2021/12/06 22:31:19 by dmontema         ###   ########.fr        #
+#    Updated: 2021/12/07 18:00:50 by dmontema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	../../lib/libft.a
+NAME		:=	../../libft.a
 HEADERFILES	:=	./libft.h
 
 

@@ -6,11 +6,11 @@
 #    By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 02:35:37 by dmontema          #+#    #+#              #
-#    Updated: 2021/12/06 22:07:14 by dmontema         ###   ########.fr        #
+#    Updated: 2021/12/07 18:00:55 by dmontema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	../../lib/libftprintf.a
+NAME			=	../../libftprintf.a
 HEADERFILES		=	./ft_printf.h
 
 FT_PRINTF_SRCS	=	ft_printf.c ft_printers.c ft_helpers.c
