@@ -6,7 +6,7 @@
 #    By: dmontema <dmontema@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/19 00:52:39 by dmontema          #+#    #+#              #
-#    Updated: 2021/12/07 18:00:23 by dmontema         ###   ########.fr        #
+#    Updated: 2021/12/07 22:48:22 by dmontema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,3 +61,9 @@ fclean:	clean
 	@make -C $(SRC_DIR)/ft_printf fclean
 
 re:	fclean all
+
+visual:
+	gcc $(CFLAGS) $(LIBS) $(SRCS) visualization.c -o visualizer
+
+clean-vis:	
+	rm visualizer
